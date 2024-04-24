@@ -8,7 +8,7 @@
 
 body{
     display: grid;
-    grid-template-rows: 15vh 75vh 10vh;
+    grid-template-rows: 15vh auto 10vh;
 }
 
 header{
@@ -28,11 +28,11 @@ main{
     align-items: center;
     justify-content: center;
     text-align: center;
-
 }
 
 main > ul > li{
     list-style: none;
+    margin: 10px 0;
 }
 
 main > ul > li > a{
@@ -40,12 +40,6 @@ main > ul > li > a{
     color: #333;
     font-weight: bold;
     font-size: 14;
-}
-
-main > ul > li > a:hover{
-    text-decoration: none;
-    color: #333;
-    opacity: 0.8;
 }
 
 footer{
@@ -60,4 +54,23 @@ footer{
 #ancoras-header{
     display:flex;
     flex-direction: column;
+}
+
+.botao-favoritar{
+    background-color:  #ff4136;
+    width: 100px;
+    height: 20px;
+    color: white;
+    margin-left: 10px;
+    border: none;
+}
+
+.botao-favoritar:hover{
+    background-color:  #ff4136;
+    opacity: 0.8;
+    width: 100px;
+    height: 20px;
+    color: white;
+    margin-left: 10px;
+    border: none;
 }

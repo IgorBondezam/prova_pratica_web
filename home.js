@@ -12,11 +12,11 @@ async function criarListagemEstados(){
     let ul = document.createElement("ul");
 
     estados = await getEstados();
-    estados.forEach(c => {
+    estados.forEach(e => {
         let listElement = document.createElement("li");
         let ancora = document.createElement("a");
-        ancora.innerHTML = c.nome;
-        ancora.href = './municipios/index.html?uf=' + c.sigla;
+        ancora.innerHTML = e.nome;
+        ancora.href = './municipios/index.html?uf=' + e.sigla;
         listElement.appendChild(ancora);
         ul.appendChild(listElement);
     });
