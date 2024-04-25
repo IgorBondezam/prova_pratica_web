@@ -18,7 +18,6 @@ function getValueLocalStorage(){
     if(!favoritas){
         return [];
     }
-    console.log(JSON.parse(favoritas))
     return JSON.parse(favoritas);
 }
 

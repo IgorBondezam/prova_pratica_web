@@ -2,7 +2,6 @@ const main = document.getElementById('listaEstados');
 const searchParams = new URLSearchParams(document.location.search);
 
 async function getEstados(){
-    console.log('teste')
     let estados = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
     estados = await estados.json();
     return estados;
