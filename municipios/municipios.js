@@ -11,7 +11,6 @@ function setValueLocalStorage(cidade){
     if(!favoritas){
         let createList = [];
         createList.push(JSON.stringify(cidade));
-        console.log(createList);
         localStorage.setItem('favoritas', JSON.stringify(createList));
         return;
     }

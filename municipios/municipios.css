@@ -5,6 +5,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a{
+    color: white;
+    text-decoration: none;
+}
 
 body{
     display: grid;
@@ -25,9 +29,10 @@ main{
     text-decoration: none;
     color: black;
     display: flex;
-    align-items: center;
     justify-content: center;
     text-align: center;
+    min-height: 75vh;
+    height: auto;
 }
 
 main > ul > li{
