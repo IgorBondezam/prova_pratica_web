@@ -1,25 +1,23 @@
 const sigla = new URLSearchParams(document.location.search);
 const tituloHeader = document.getElementById('titulo-header');
 const main = document.getElementById('listaEstados');
-const titlePage = document.getElementsByTagName('title');
 
-titlePage.innerHTML = 'Municípios de ' + sigla.get('uf');
+document.title = 'Municípios de ' + sigla.get('uf');
 tituloHeader.innerHTML = 'Municípios de ' + sigla.get('uf');
 
 
 function setValueLocalStorage(cidade){
     let favoritas = localStorage.getItem('favoritas');
     if(!favoritas){
-        let create = [];
-        create.push(cidade);
-        JSON.stringify(create);
-        localStorage.setItem('favoritas', create);
+        let createList = [];
+        createList.push(JSON.stringify(cidade));
+        console.log(createList);
+        localStorage.setItem('favoritas', JSON.stringify(createList));
         return;
     }
     favoritas = JSON.parse(favoritas);
-    favoritas.push(cidade);
-    JSON.stringify(favoritas);
-    localStorage.setItem('favoritas', favoritas);
+    favoritas.push(JSON.stringify(cidade));
+    localStorage.setItem('favoritas', JSON.stringify(favoritas));
 }
 
 async function getCidadesFromSigla(){
@@ -33,14 +31,13 @@ async function criarListagemCidades(){
 
     cidades = await getCidadesFromSigla();
     cidades.forEach(c => {
-        let botao = criarBotao()
+        let botao = criarBotao();
+        botao.addEventListener('click', () => setValueLocalStorage(c));
         let listElement = document.createElement("li");
         let span = document.createElement("span");
         span.innerHTML = c.nome;
         listElement.appendChild(span);
         listElement.appendChild(botao);
-        console.log(listElement);
-        console.log(botao);
         ul.appendChild(listElement);
     });
     main.appendChild(ul);
